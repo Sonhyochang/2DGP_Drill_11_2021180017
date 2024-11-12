@@ -170,5 +170,7 @@ class Boy:
         # fill here
         if group == 'boy:ball':
             self.ball_count += 1
+        elif group == 'zombie:boy':
+            exit(0)
 
         pass
