@@ -160,6 +160,7 @@ class Boy:
             self.ball_count -= 1
             ball = Ball(self.x, self.y, self.face_dir*10)
             game_world.add_object(ball)
+            game_world.add_collision_pair('zombie:ball',None,ball)
 
     def get_bb(self):
         # 네개의 값, x1,y1,x2,y2
@@ -171,6 +172,7 @@ class Boy:
         if group == 'boy:ball':
             self.ball_count += 1
         elif group == 'zombie:boy':
+            print('Game Over')
             exit(0)
 
         pass

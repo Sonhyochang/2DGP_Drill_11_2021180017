@@ -57,10 +57,16 @@ class Zombie:
         pass
 
     def get_bb(self):
-        return self.x - (self.size//2 - 25), self.y - self.size//2, self.x+ (self.size//2 - 25), self.y + self.size//2
+        return self.x - self.size/2, self.y - self.size/2, self.x+ self.size/2, self.y + self.size/2
 
     def handle_collision(self, group, other):
         if group == 'zombie:boy':
             exit(0)
+        elif group == 'zombie:ball' and other.velocity != 0:
+            if self.size == 200:
+                self.size = 100
+                self.y = self.y - self.size//2
+            elif self.size == 100:
+                game_world.remove_object(self)
 
 
